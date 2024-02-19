@@ -31,7 +31,7 @@
   ],
   "navigation": [
     {
-      "group": "evaluation",
+      "group": "Evaluation",
       "pages": [
         "evaluation/quickstart",
         "evaluation/prompt_Template",

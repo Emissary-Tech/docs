@@ -1,0 +1,47 @@
+---
+title: Metrics
+description: 'Hit the ground running with evaluation'
+---
+
+## What is a metric?
+The core of any evaluation activity is knowing what characteristics constitute a good output in order to benchmark your current performance and identify directions for improvement.
+
+A metric is just that - a reduction of those characteristics into a numeric scale that can measure changes, both positive and negative, to performance over time.
+
+## Choosing a metric 
+Metrics should be:
+- Consistent: Disagreement between different raters (LLM or Human) would be small for any given input output pair. If I give it a 5, you'd give it a 5 is ideal
+- Distributed: Your test set contains samples that deserve scores across the spectrum for this metric. That is, not all scores are of a specific score - it's hard to compare systems if both of them score 5/5 across all samples!
+
+## Defining your own metric
+
+At Emissary, we understand that every AI use-case is unique. A prompt service for lawyers relies on consistency between input and output, but one for fiction might be inhibited by the same.
+
+That's why, you can define your own metrics on our benchmarking Infrastructure.
+Click the + sign right beside the list of metrics and then name, describe and choose a type for your metric. The type can be an integer in a range defined by you (NUMBER), one of multiple choices defined by you (ENUM) or freeform string
+
+We'll take care of the rest. 
+For LLM-assisted evaluation, we'll trigger it automatically after your outputs are generated. We'll then aggregate those values across your test set - averages for NUMBERS and counts for ENUMs.
+For manual evaluation, you can rate through our Rapid Evaluation interface yourself, collaboratively with teammates by using our 'Share' functionality, or send the evaluation over to Emissary and we'll take care of it completely (at a cost, of course)
+
+
+## Good Custom Metric definitions
+
+The best way to define your custom metric is largely quite obvious:
+- Choose a clear, descriptive name
+- Choose to score by ENUM or NUMBER, instead of freeform string: this makes it more tractable to compare outputs.
+- In the metric description, describe CLEARLY what you're intending to measure. Then, if possible, for each value of the number, or ENUM choice, provide a corresponding description.
+That is, if you're asking to score fluency from 1-5, describe clearly what state comprises a score of 1,2,3,4,5.
+
+Remember, regardless of whether it's LLM-assisted or Human Evaluation, the more explicit the description, the more consistent the results will be.
+
+
+## Metric Value Generation
+
+So once you've defined a good metric, what are the different ways you can actually generate scores for your outputs?
+Well, there are 4:
+- The easiest, of course, is to leverage LLM-assisted evaluation. But this tends to also be the least reliable for complex tasks - LLMs like their own output
+- You can obviously, just score your own manually evaluated metrics. And with our RapidEval system, it's a lot more fun than staring at excel sheets.
+- But you don't have to do it alone. You can share the eval with your friends and team mates, and all share in the RapidEval fun!
+- The msot hands-off approach is to send it to Emissary. For a small fee, we'll take the whole job off your hands :) Click the Send to Emissary button on the top right and rest easy, while we comb through every sample and log your metrics.
+

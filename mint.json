@@ -3,9 +3,9 @@
   "name": "Starter Kit",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/light.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "logo/light.png",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -18,74 +18,39 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:outreach@withemissary.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://withemissary.com"
   },
   "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
   ],
   "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Evaluation",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "evaluation/quickstart",
+        "evaluation/prompt_Template",
+        "evaluation/datasets",
+        "evaluation/models",
+        "evaluation/metrics"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Service Creation",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "service_creation/quickstart",
+        "service_creation/types"
       ]
     }
+    
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/withemissary",
+    "linkedin": "https://www.linkedin.com/company/withemissary"
   }
 }

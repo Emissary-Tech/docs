@@ -1,0 +1,40 @@
+---
+title: Datasets
+description: 'The set of examples to evaluate a given prompt'
+---
+
+
+## Overview
+
+A test set, more conventionally referred to as a 'golden set' in machine learning, is a set of values for the variables of a given prompt template that comprise a sampling of potential inputs the AI service might be exposed to in production.
+
+A good test set comprises varied cases, each of which contains values for every input variable - both core and edge, that can help determine the quality of a prompt template.
+It should help provide the developer with a clear idea of the outputs a prompt template might generate in production.
+
+On the Emissary platform, test sets can be created in three ways:
+
+### By Upload
+The highest quality approach is to upload a csv file, which contains a column for each input variable. That is, each row of the file is a test case that has a cell for each input. 
+Here's an example:
+
+
+<Frame>
+  <img src="/images/variable_csv.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+### By Generation
+
+Once you've entered a prompt template, Emissary can generate a set of test cases for you.
+Do note, this feature is currently in beta and as such is relatively slow. Over time, both our speed and quality will increase.
+
+To access this feature, enter in your prompt template and OpenAI API Key and hit the 'Generate Testing Samples' button.
+
+### By Expansion
+
+This is the optimal approach to trade off speed with quality - upload a csv file with a small sample set (2-4 samples) and hit the 'Add Samples' button (in the same location and 'Generate Testing Samples').
+Once you select the number of samples in the modal, our systems will begin their work, and add those many samples to your test set.
+
+
+
+
+

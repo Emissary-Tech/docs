@@ -1,0 +1,88 @@
+---
+title: Quickstart
+description: 'Going from scratch to AI-enabled in minutes'
+---
+
+## Overview
+The basic unit of a capability on the Emissary platform is the AI service - essentially a single mapping function between an input and an output.
+An AI service can be both from the new Gen AI world - a prompt query to an LLM, or an input-output to a custom LM, or for the conventional ML world - a decision tree or even classifier/regression.
+An AI service is defined by the combination of an input format, a model queried, and an output format. 
+
+See [Creating your first AI service](#creating-your-first-ai-service) to get started, or learn more about each component by clicking on a card below
+
+<CardGroup cols={2}>
+  <Card
+    title="Service Types"
+    icon="palette"
+    href="https://docs.withemissary.com/service_creation/types"
+  >
+    Explore prompt development on Emissary
+  </Card>
+  <Card
+    title="Setting Up your Service"
+    icon="code"
+    href="https://docs.withemissary.com/service_creation/setup"
+  >
+Upload, generate and expand test sets
+  </Card>
+  <Card
+    title="Monitoring Services"
+    icon="screwdriver-wrench"
+    href="https://docs.withemissary.com/service_creation/monitoring"
+  >
+Choose the engine that drives your AI
+  </Card>
+  <Card
+    title="Versioning Services"
+    icon="stars"
+    href="https://docs.withemissary.com/service_creation/versioning"
+  >
+  Explore new ways to measure your AI's performance in production
+  </Card>
+</CardGroup>
+
+
+## Creating your first AI service
+
+**Step 1**: Click the massive + sign on the AI service panel in the dashboard and select your type. If you have a prompt in production already, select 'Custom Prompt'. If you have no clue where to start, we recommend our 'Quick Start' templates.
+<Frame>
+  <img src="/images/service_creation/create.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+
+**Step 2**: Define a name for your service, and optionally, a description. Choose between a Private (OpenAI) or community (Opensource) LLM for the GenAI types(Prompt and Chat). 
+If you choose OpenAI, don't forget to provide an API key!
+
+**Step 3**: Enter your prompt template, remember to enter any prompt variables within curly braces.
+
+<CardGroup cols={2}>
+  <Card>
+    <img src="/images/service_creation/name_desc.png" />
+  </Card>
+  <Card>
+    <img src="/images/service_creation/prompt.png" />
+  </Card>
+</CardGroup>
+
+
+**Step 4**: You can quickly test your AI service in the next window by entering sample test values. The results will immediately show up below the input and a log will appear in the monitoring panel.
+<Frame>
+  <img src="/images/service_creation/testing.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+
+**Step 5**: To integrate your service with your code, click on the API call examples alongside the Testing tab. This contains stub code you can paste into your application directly!
+Remember, the API-Key field in the code corresponds to your Emissary API key, NOT your OpenAI API key. You can create and retrieve an Emissary API key from the API Keys panel on your dashboard.
+Don't forget to start logging feedback from your users using the feedback stub code - this will be vital as you establish how to improve your AI over time. You can log positive and negative feedback from your users. 
+
+
+See below for an example. 
+
+<Frame>
+  <img src="/images/service_creation/api_key.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+
+The best part of leveraging the Emissary platform is that version control, observability, authorization and evaluation are all in place for you already! 
+
+As you continue to receive traffic through your AI service, you can monitor all activity from the 'Usage Monitoring' tab.

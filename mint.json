@@ -5,7 +5,7 @@
     "dark": "/logo/dark.png",
     "light": "/logo/light.svg"
   },
-  "favicon": "logo/light.png",
+  "favicon": "logo/light.svg",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -34,7 +34,7 @@
       "group": "Evaluation",
       "pages": [
         "evaluation/quickstart",
-        "evaluation/prompt_Template",
+        "evaluation/prompt_template",
         "evaluation/datasets",
         "evaluation/models",
         "evaluation/metrics"
@@ -48,6 +48,16 @@
         "service_creation/setup",
         "service_creation/monitoring",
         "service_creation/versioning"
+      ]
+    },
+     {
+      "group": "Finetuning",
+      "pages": [
+        "finetuning/quickstart",
+        "finetuning/datasets",
+        "finetuning/training_jobs",
+        "finetuning/artifacts",
+        "finetuning/deployment"
       ]
     }
     

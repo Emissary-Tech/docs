@@ -1,43 +1,44 @@
 ---
-title: Quickstart
-description: 'Going from scratch to AI-enabled in minutes'
+title: Finetuning your AI Models
+description: 'Developing Proprietary AI'
 ---
 
 ## Overview
-The basic unit of a capability on the Emissary platform is the AI service - essentially a single mapping function between an input and an output.
-An AI service can be both from the new Gen AI world - a prompt query to an LLM, or an input-output to a custom LM, or for the conventional ML world - a decision tree or even classifier/regression.
-An AI service is defined by the combination of an input format, a model queried, and an output format. 
+Once you have a clear idea of your AI use-case, you'll want to develop systems that 'adapt' to your specific needs.
+This can be achieved through finetuning your own AI models. At its core, all AI is about matrix multiplication, expressed by the simple equation Ax = y where A is your AI model weights, x your input and y output.
+In the case of prompting, we modify x, having no control over A. In finetuning, you modify and control A, allowing greater control and stability over your AI.
+Finetuning allows you to be more than just another prompt wrapper and have differentiated AI capabilities. 
 
-See [Creating your first AI service](#creating-your-first-ai-service) to get started, or learn more about each component by clicking on a card below
+See [Finetuning your first AI model](#finetuning-your-first-ai-model) to get started, or learn more about each stage by clicking on a card below
 
 <CardGroup cols={2}>
   <Card
-    title="Service Types"
+    title="Datasets"
     icon="palette"
-    href="https://docs.withemissary.com/service_creation/types"
+    href="https://docs.withemissary.com/finetuning/datasets"
   >
-    Explore prompt development on Emissary
+    Upload and manage datasets
   </Card>
-  <Card
-    title="Setting Up your Service"
-    icon="code"
-    href="https://docs.withemissary.com/service_creation/setup"
+   <Card
+    title="Training Jobs"
+    icon="palette"
+    href="https://docs.withemissary.com/finetuning/training_jobs"
   >
-Upload, generate and expand test sets
+    Training Jobs
   </Card>
-  <Card
-    title="Monitoring Services"
-    icon="screwdriver-wrench"
-    href="https://docs.withemissary.com/service_creation/monitoring"
+   <Card
+    title="Artifacts"
+    icon="palette"
+    href="https://docs.withemissary.com/finetuning/artifacts"
   >
-Choose the engine that drives your AI
+    View and Manage Artifacts
   </Card>
-  <Card
-    title="Versioning Services"
-    icon="stars"
-    href="https://docs.withemissary.com/service_creation/versioning"
+   <Card
+    title="Deployment"
+    icon="palette"
+    href="https://docs.withemissary.com/finetuning/deployment"
   >
-  Explore new ways to measure your AI's performance in production
+    Deploying Models
   </Card>
 </CardGroup>
 

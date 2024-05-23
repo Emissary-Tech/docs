@@ -1,5 +1,5 @@
 ---
-title: Finetuning your AI Models
+title: Quickstart
 description: 'Developing Proprietary AI'
 ---
 
@@ -43,47 +43,62 @@ See [Finetuning your first AI model](#finetuning-your-first-ai-model) to get sta
 </CardGroup>
 
 
-## Creating your first AI service
+## Finetuning your first AI model
 
-**Step 1**: Click the massive + sign on the AI service panel in the dashboard and select your type. If you have a prompt in production already, select 'Custom Prompt'. If you have no clue where to start, we recommend our 'Quick Start' templates.
-<Frame>
-  <img src="/images/service_creation/create.png" style={{ borderRadius: '0.5rem' }} />
-</Frame>
-
-
-**Step 2**: Define a name for your service, and optionally, a description. Choose between a Private (OpenAI) or community (Opensource) LLM for the GenAI types(Prompt and Chat). 
-If you choose OpenAI, don't forget to provide an API key!
-
-**Step 3**: Enter your prompt template, remember to enter any prompt variables within curly braces.
+**Step 1: Create Model Service** <br></br>
+Click the + sign on the Model service panel in the dashboard and enter a name and optionally description for your finetuning task
 
 <CardGroup cols={2}>
   <Card>
-    <img src="/images/service_creation/name_desc.png" />
+    <img src="/images/finetuning/model_services.png" />
   </Card>
   <Card>
-    <img src="/images/service_creation/prompt.png" />
+    <img src="/images/finetuning/new_model_service.png" />
   </Card>
 </CardGroup>
 
+**Step 2: Upload Datasets** <br></br>
+A tile is created for your task. Click 'Manage' to enter the task workspace. Then, click 'Manage Datasets' in the 'Datasets' tile and the 'Upload Datasets' button.
+Here, you can upload as many datasets as you want - remember to select a file and name each dataset. We recommend naming datasets to reflect what's distinct about them.
 
-**Step 4**: You can quickly test your AI service in the next window by entering sample test values. The results will immediately show up below the input and a log will appear in the monitoring panel.
+<CardGroup cols={2}>
+  <Card>
+    <img src="/images/finetuning/manage_datasets.png" />
+  </Card>
+  <Card>
+    <img src="/images/finetuning/upload_dataset.png" />
+  </Card>
+</CardGroup>
+
+**Step 3: Finetune Model** <br></br>
+Now, go back one panel and click into 'Manage Training Jobs'. Here, we'll be able to kick off finetunes. The shortest path to finetuning a model is click 'New Training Job', name the output model, pick a backbone and training dataset (you must have uploaded it in the step before), and click 'Train'
+You can optionally upload a test data set and once you select a model, will also be able to see and modify advanced parameters such as number of epochs, learning rate, batch size and downsample size.
+To test on a random fraction of your data, simply change downsample size to the relevant percentage (10 --> training on 10% of data). By default, values are set to help you have the highest probability of successful outcome. 
+
+Note, your training job will initially show 'Pending' status - at this point, we're provisioning your instance. 
+Once your training job has been initiated, you'll see 'Running' appear as the status. 
+Once complete, you'll see 'success'.
+
 <Frame>
-  <img src="/images/service_creation/testing.png" style={{ borderRadius: '0.5rem' }} />
+  <img src="/images/finetuning/training_job.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+<Frame>
+  <img src="/images/finetuning/training.png" style={{ borderRadius: '0.5rem' }} />
 </Frame>
 
 
-**Step 5**: To integrate your service with your code, click on the API call examples alongside the Testing tab. This contains stub code you can paste into your application directly!
-Remember, the API-Key field in the code corresponds to your Emissary API key, NOT your OpenAI API key. You can create and retrieve an Emissary API key from the API Keys panel on your dashboard.
-Don't forget to start logging feedback from your users using the feedback stub code - this will be vital as you establish how to improve your AI over time. You can log positive and negative feedback from your users. 
-
-
-See below for an example. 
+**Step 4: Deploy Model** <br></br> 
+Once your training job is successful, you can see the outputted models in the Artifacts tab. By clicking into 'Manage Artifacts', you can instantly see all trained models for a given Model Service and deploy them in one click, by clicking the 'Deploy' button.
+You can deploy multiple models at the same time.
 
 <Frame>
-  <img src="/images/service_creation/api_key.png" style={{ borderRadius: '0.5rem' }} />
+  <img src="/images/finetuning/success_job.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+<Frame>
+  <img src="/images/finetuning/deploy_model.png" style={{ borderRadius: '0.5rem' }} />
 </Frame>
 
 
-The best part of leveraging the Emissary platform is that version control, observability, authorization and evaluation are all in place for you already! 
-
-As you continue to receive traffic through your AI service, you can monitor all activity from the 'Usage Monitoring' tab.
+**Step 5: Deployment Testing and Monitoring** <br></br>
+By clicking into the 'Manage Deployments', you can view, manage and test all your models - and also see the data flowing through them.
+From this panel, you can also deploy base models (non-finetuned models) for any model service.

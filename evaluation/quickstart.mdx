@@ -11,7 +11,7 @@ Each evaluation of your AI feature comprises four components -
 * **test set**
 * **set of metrics that indicate whether the output was desirable or not**
 
-On the Stupidly Simple Benchmarking Infrastructure (SSBI), the prompt template is interpolated with each set of prompt variables from the test set, run through the chosen language model and then evaluated on the defined metrics.
+On the Absurdly Simple Benchmarking Infrastructure (SSBI), the prompt template is interpolated with each set of prompt variables from the test set, run through the chosen language model and then evaluated on the defined metrics.
 The metric values are then aggregated to provide a performance benchmark for this unique combination.
 
 See [Running your first evaluation](#running-your-first-evaluation) to get started, or learn more about each component by clicking on a card below
@@ -49,40 +49,52 @@ Choose the engine that drives your AI
 
 ## Running your first evaluation
 
-**Step 1**: Enter your prompt template. Remember, any variables in the prompt, that is dynamic inputs - should be within curly braces as such `{variable}`. 
+**Step 1**: Enter your prompt template. Remember, any variables in the prompt, that is dynamic inputs - should be within curly braces as such `{{variable}}`. 
 See below for an example: 
 <Frame>
-  <img src="/images/sample_prompt.png" style={{ borderRadius: '0.5rem' }} />
+  <img src="/images/evaluations/sample_prompt.png" style={{ borderRadius: '0.5rem' }} />
 </Frame>
-**Step 2**: Input your Open AI key 
 
-**Step 3**: Upload or generate test set. Select any csv file you have, or click the 'Generate samples' button to get samples that correspond to the format needed for the prompt.
+**Step 2**: Select your evaluation mode - we enable evaluating on a single model, model migrations (one to another) or multi-model evalutions. 
+<Frame>
+  <img src="/images/evaluations/fields.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+**Step 3**: Based on your mode, select the models you want to evaluate on (one, two or many). The entire model lists from OpenAI and Anthropic, as well as Mistral models, are available for selection. 
+
+**Step 4**: Insert API keys. You will always need to insert an OpenAI API key as we use this for LLM-based evaluations and sample generation (if you select them), but if you choose to evaluate a Gemini model, we will also ask for a corresponding API key for Gemini.
+
+**Step 2**: Select your evaluation mode - we enable evaluating on a single model, model migrations (one to another) or multi-model evalutions. 
+<Frame>
+  <img src="/images/evaluations/apikeys.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+
+**Step 5**: Upload or generate test set. Select any csv file you have, or click the 'Generate samples' button to get samples that correspond to the format needed for the prompt.
 > _Note_: You must have already inputted your OpenAI API key and a prompt template in order to activate sample generation capability.
 
 Ensure that your spreadsheet has a column corresponding to every single prompt variable. That is, there must be a column with the exact same name as each prompt variable in the csv file. 
 
-
-**Step 4**: Select the models you want to evaluate on. You may select one or more models - and the entire model list from OpenAI is available to you.
-
-<Frame>
-  <img src="/images/fields.png" style={{ borderRadius: '0.5rem' }} />
-</Frame>
-
-**Step 5**: Check the metrics you want to evaluate against. Choose from our preset common metrics, or better yet - define your own.
-
-**Step 6**: Hit 'Run', and your corresponding outputs and chosen metrics will start being generated immediately.
-
+**Step 6**: Check the metrics you want to evaluate against. Choose from our preset common metrics, or better yet - define your own by clicking on the '+' sign next to the last metric.
 
 <Frame>
-  <img src="/images/fields.png" style={{ borderRadius: '0.5rem' }} />
+  <img src="/images/evaluations/metric.png" style={{ borderRadius: '0.5rem' }} />
 </Frame>
+
+
+**Step 7**: Hit 'Run', and your corresponding outputs and chosen metrics will start being generated immediately.
+
 
 **Step 7**: For manually evaluated metrics, click the 'Rapid Evaluation' button below each evaluation spreadsheet to enter our RapidEval mode and score your outputs.
 Your LLM-generated metrics will be present already and all your metrics, once available, will be auto-aggregated. Feeling _optimal_? Send over the spreadsheet to Emissary from the top right 'Send to Emissary' button and we'll label it for you!
 
-
 <Frame>
   <img src="/images/rapid_eval.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+
+<Frame>
+  <img src="/images/evaluations/rapid_eval_interface.png" style={{ borderRadius: '0.5rem' }} />
 </Frame>
 
 **Step 8**: Download the final spreadsheet, or share with your colleagues from the top right 'Share' button. You can also find your spreadsheets later within our 'Evaluations' Panel on your dashboard!

@@ -53,11 +53,7 @@
      {
       "group": "Finetuning",
       "pages": [
-        "finetuning/quickstart",
-        "finetuning/datasets",
-        "finetuning/training_jobs",
-        "finetuning/artifacts",
-        "finetuning/deployment"
+        "finetuning/quickstart"
       ]
     }
     

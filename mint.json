@@ -7,12 +7,12 @@
   },
   "favicon": "logo/light.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#007BFF",
+    "light": "#007BFF",
+    "dark": "#007BFF",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#007BFF",
+      "to": "#007BFF"
     }
   },
   "topbarLinks": [
@@ -31,29 +31,18 @@
   ],
   "navigation": [
     {
-      "group": "Evaluation",
+      "group": "Finetuning",
       "pages": [
-        "evaluation/quickstart",
-        "evaluation/prompt_template",
-        "evaluation/datasets",
-        "evaluation/models",
-        "evaluation/metrics"
+        "finetuning/quickstart",
+        "finetuning/datasets",
+        "finetuning/parameters",
+        "finetuning/testing"
       ]
     },
     {
-      "group": "Service Creation",
+      "group": "Prompt Services",
       "pages": [
-        "service_creation/quickstart",
-        "service_creation/types",
-        "service_creation/setup",
-        "service_creation/monitoring",
-        "service_creation/versioning"
-      ]
-    },
-     {
-      "group": "Finetuning",
-      "pages": [
-        "finetuning/quickstart"
+        "prompt_services/quickstart"
       ]
     }
     

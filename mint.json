@@ -36,7 +36,8 @@
         "finetuning/quickstart",
         "finetuning/datasets",
         "finetuning/parameters",
-        "finetuning/testing"
+        "finetuning/testing",
+        "finetuning/deployment"
       ]
     },
     {

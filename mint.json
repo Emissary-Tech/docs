@@ -40,10 +40,12 @@
         "finetuning/deployment"
       ]
     },
-    {
-      "group": "Prompt Services",
+  {
+      "group": "Finetuning Guides",
       "pages": [
-        "prompt_services/quickstart"
+        "finetuning-guides/data-extraction",
+        "finetuning-guides/classification",
+        "finetuning-guides/embedding"
       ]
     }
     

@@ -1,0 +1,159 @@
+---
+title: Text Classification - Guide
+---
+
+## Table of Contents
+- [Objective](#objective)
+- [Finetuning Preparation](#finetuning-preparation)
+  - [Create Model Service](#create-model-service)
+  - [Uploading Datasets](#uploading-datasets)
+- [Model Finetuning](#model-finetuning)
+  - [Selecting Base Model](#selecting-base-model)
+  - [Training Parameter Configuration](#training-parameter-configuration)
+- [Model Monitoring & Evaluation](#model-monitoring--evaluation)
+  - [Using Test Datasets](#using-test-datasets)
+  - [Evaluation Metric Interpretation](#evaluation-metric-interpretation)
+- [Deployment](#deployment)
+  - [Finetuned Model Deployment](#finetuned-model-deployment)
+  - [Parameter Recalibration](#parameter-recalibration)
+- [Best Practices](#best-practices)
+
+## Objective
+
+The following is a guide on finetuning a model for **Text Classification** tasks on Emissary, specifically focusing on **Llama3-8B-Chat** and **BERT** models that we recommend for such tasks.
+
+## Finetuning Preparation
+
+Please refer to the in-depth guide on Finetuning on Emissary here - [Quickstart Guide](../finetuning/quickstart).
+
+### Create Model Service
+
+Navigate to **Dashboard**, arriving at **Model Services**, the default page on the Emissary platform.
+
+1. Click **+ NEW SERVICE** in the dashboard.  
+   <Card>
+        <img src="/images/guides/project_create1.png" />
+    </Card> 
+2. In the pop-up, enter a new model service name, and click **CREATE**.  
+   <Card>
+        <img src="/images/guides/project_create2.png" />
+    </Card> 
+
+### Uploading Datasets
+
+A tile is created for your task. Click **Manage** to enter the task workspace.  
+    <Card>
+        <img src="/images/guides/project_manage1.png" />
+    </Card>
+
+1. Click **MANAGE** in the **Datasets Available** tile.  
+    <Card>
+        <img src="/images/guides/project_manage2.png" />
+    </Card>
+2. Click on **+ UPLOAD DATASET** and select training and test datasets.  
+   <Card>
+        <img src="/images/guides/dataset1.png" />
+    </Card>
+3. Name datasets clearly to distinguish between training and test data (e.g., <span style={{ color: 'green' }}>train_big_news_csv, test_big_news_csv, train_big_news_completion, test_big_news_completion</span>).
+
+**Important Note**: For **BERT models** or other traditional models, please use **CSV** (<span style={{ color: 'green' }}>.csv</span>) format.  
+    <Card>
+        <img src="/images/guides/dataset2.png" />
+    </Card>
+
+## Model Finetuning
+
+Now, go back one panel by clicking **OVERVIEW** and then click **MANAGE** in the **Training Jobs** tile.  
+    <Card>
+        <img src="/images/guides/project_manage3.png" />
+    </Card>
+
+Here, we’ll kick off finetuning. The shortest path to finetuning a model is by clicking **+NEW TRAINING JOB**, naming the output model, picking a backbone (**base model**), selecting the training dataset (you must have uploaded it in the step before), and finally hitting **START NEW TRAINING JOB**.  
+    <Card>
+        <img src="/images/guides/finetune1.png" />
+    </Card>
+
+### Selecting Base Model
+
+1. **BERT Model** (for CSV datasets):  
+   BERT is highly efficient for text classification with structured CSV data, especially for tasks where the primary focus is accuracy over natural language generation.  
+   <Card>
+        <img src="/images/guides/bert1.png" />
+    </Card>
+
+2. **Llama 3 8B Model** (for JSONL datasets):  
+   The Llama model is well-suited for classification tasks that require deeper natural language understanding. JSONL is recommended for LLM models due to its flexibility with longer text inputs.  
+   <Card>
+        <img src="/images/guides/llama3-8b.png" />
+    </Card>
+
+3. A custom function that compares two **strings** and gives a matching score has been provided. Uncomment <span style={{ color: 'red' }}>"classification_score"</span> to use.  
+    <Card>
+        <img src="/images/guides/testing_classification.png" />
+    </Card>
+
+### Training Parameter Configuration
+
+Please refer to the in-depth guide on configuring training parameters here - [Finetuning Parameter Guide](../finetuning/parameters).
+
+## Model Monitoring & Evaluation
+
+### Using Test Datasets
+
+Including a test dataset allows you to evaluate the model's performance during training.
+
+- **Per Epoch Evaluation**: The platform evaluates the model at each epoch using the test dataset.
+- **Metrics and Outputs**: View evaluation metrics and generated outputs for test samples.
+- Post completion of training, check scores in **Training Job --> Artifacts**.
+    <br></br>For the **LLM model**, expect the following:  
+    <Card>
+        <img src="/images/guides/evaluate_classification.png" />
+    </Card>
+
+    For **BERT**, expect accuracy scores as follows:  
+    <Card>
+        <img src="/images/guides/evaluate_bert.png" />
+    </Card>
+
+### Evaluation Metric Interpretation
+
+- **Accuracy**: Indicates the percentage of correct predictions.
+- **F1 Score**: Balances precision and recall; useful for imbalanced datasets.
+- **Custom Metrics**: Define custom metrics in the testing script to suit your evaluation needs.
+
+## Deployment
+
+Refer to the in-depth walkthrough on deploying a model on Emissary here - [Deployment Guide](../finetuning/deployments).
+
+Deploying your models allows you to serve them and integrate them into your applications.
+
+### Finetuned Model Deployment
+
+1. Navigate to the **Training Jobs Page**. From the list of the finetuning jobs, select the one you want to deploy.  
+   <Card>
+        <img src="/images/guides/deployment_fine_tuned.png" />
+    </Card>
+2. Go to the **ARTIFACTS** tab.  
+   <Card>
+        <img src="/images/guides/artifacts1.png" />
+    </Card>
+3. Select a **Checkpoint** to Deploy.  
+    <Card>
+        <img src="/images/guides/checkpoint_evaluate.png" />
+    </Card>
+
+### Parameter Recalibration
+
+Adjust parameters like <span style={{ color: 'green' }}>do_sample, temperature, max_new_tokens </span>, etc. to finetune the model's response behavior.
+
+- **<span style={{ color: 'green' }}>do_sample</span>**: Enable sampling for more varied outputs.
+- **<span style={{ color: 'green' }}>temperature</span>**: Increase for more creativity, decrease for more deterministic responses.
+- **<span style={{ color: 'green' }}>max_new_tokens</span>**: Limit the length of generated responses.
+- **<span style={{ color: 'green' }}>top_p</span>** and **top_k**: Control the diversity of the output.
+
+## Best Practices
+
+- **Start Small**: Begin with a smaller dataset to validate your setup.
+- **Monitor Training**: Keep an eye on training logs and metrics.
+- **Iterative Testing**: Use the test dataset to iteratively improve your model.
+- **Data Format**: Use the recommended data formats for your chosen model to ensure compatibility and optimal performance.

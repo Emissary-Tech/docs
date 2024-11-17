@@ -45,7 +45,8 @@
       "pages": [
         "finetuning-guides/data-extraction",
         "finetuning-guides/classification",
-        "finetuning-guides/embedding"
+        "finetuning-guides/embedding",
+        "finetuning-guides/emissary-classification"
       ]
     }
     

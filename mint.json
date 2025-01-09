@@ -43,10 +43,10 @@
   {
       "group": "Finetuning Guides",
       "pages": [
+        "finetuning-guides/emissary-classification",
         "finetuning-guides/data-extraction",
         "finetuning-guides/classification",
-        "finetuning-guides/embedding",
-        "finetuning-guides/emissary-classification"
+        "finetuning-guides/embedding"
       ]
     }
     

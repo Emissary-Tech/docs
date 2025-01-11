@@ -1,5 +1,5 @@
 ---
-title: Text Classification (Approach 2)- Guide
+title: LLMs as Classifiers - Guide
 ---
 
 ## Table of Contents
@@ -55,7 +55,7 @@ input,expected_output
 "This is another sample text for binary classification",0
 ```
 
-### For Multi-Label Binary Classification
+### For Multi-Class/Multi-Label Binary Classification
 In cases where multiple labels are evaluated independently, the completion should be a dictionary where each label is mapped to a binary value (0 or 1) to indicate its relevance.
 
 **JSONL Format**
@@ -108,7 +108,7 @@ A tile is created for your task. Click **Manage** to enter the task workspace.
     </Card>
 2. Click on **+ UPLOAD DATASET** and select training and test datasets.  
    <Card>
-        <img src="/images/guides/dataset1.png" />
+        <img src="/images/finetuning/upload_dataset.png" />
     </Card>
 
 3. Name datasets clearly to distinguish between training and test data (e.g., <span style={{ color: 'green' }}>train_classification_data.csv</span>, <span style={{ color: 'green' }}>test_classification_data.csv</span>).
@@ -127,10 +127,10 @@ Select **Classification** from the given options.
 
 This selection ensures that a **classification head** is added on top of the base LLM, enabling the model to return **probabilities** for the specified labels.
 
-<Card> <img src="/images/guides/NewTrainingJob.png" /> </Card>
+<Card> <img src="/images/guides/train_classification.png" /> </Card>
 
 A custom function that calculates a matching score for the given expected and predicted outputs, based on how well the binary expected labels match the predicted probabilities has been provided.
-Uncomment the <span style={{ color: 'red' }}>"sample_match_binary_labels_metric"</span> to use it.
+Uncomment the suitable classification metric function to use it.
 
 <Card> <img src="/images/guides/classification_metric.png" /> </Card>
 ### Training Parameter Configuration
@@ -162,6 +162,12 @@ Deploying your models allows you to serve them and integrate them into your appl
 <Card> <img src="/images/guides/artifacts1.png" /> </Card>
 3. Select a **Checkpoint** to Deploy.
 <Card> <img src="/images/guides/checkpoint_evaluate.png" /> </Card>
+4. Go to **Deployments** to check the status of you deployed model
+<Card> <img src="/images/guides/deployment.png" /> </Card>
+5. Once the model is deployed (as shown in the status), go to the testing tab.
+<Card> <img src="/images/guides/deployment_status.png" /> </Card>
+6. Test your samples in the the input box.
+<Card> <img src="/images/guides/testing_tab.png" /> </Card>
 
 ## 7. Best Practices
 - **Start Small**: Begin with a smaller dataset to validate your setup.
